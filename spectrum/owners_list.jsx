@@ -12,7 +12,7 @@ export default class OwnersList extends Component {
     return (
       <Segment.Group>
         {owners.map(owner => (
-          <Segment>
+          <Segment key={owner}>
             <code>{owner}</code>{' '}{' '}{' '}
             <SelfCallingTxItem
               {...this.props}

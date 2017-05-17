@@ -1,18 +1,19 @@
 # MultiSig Wallet Dapplet
 
 ```
-- Deploy New
-- Config Existing
+- Deploy New ->
+- Add Existing (name it, etc)
 x Create Transaction `submitTransaction`
-~ List View `getTransactionIds` & `transactions.call()`
-  - Filter by Confirmed / Unconfirmed
-~ Detail View
-  ~ List Transaction Detail
-  ~ List Confirmations `getConfirmations.call(transactionId)`
-  ~ Confirm Transaction `confirmTransaction`
-  ~ Revoke Confirmation `revokeConfirmation`
-  ~ Re-Execute Transaction `executeTransaction`
-~ Admin
-  ~ Add User `replaceOwner`, `removeOwner`, `addOwner`
-  ~ Requirement `changeRequirement`
+x List View `getTransactionIds` & `transactions.call()`
+  x Filter by Confirmed / Unconfirmed
+x Detail View
+  x List Transaction Detail
+  x List Confirmations `getConfirmations.call(transactionId)`
+  x Confirm Transaction `confirmTransaction`
+  x Revoke Confirmation `revokeConfirmation`
+  x Re-Execute Transaction `executeTransaction`
+x Admin
+  x Add User `replaceOwner`, `removeOwner`, `addOwner`
+  x Requirement `changeRequirement`
+- UI beautify
 ```
