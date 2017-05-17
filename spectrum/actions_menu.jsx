@@ -9,12 +9,13 @@ const FormField = require('@digix/spectrum/src/components/common/form_field').de
 
 export default class ActionsMenu extends Component {
   render() {
-    const { contract } = this.props;
+    const { contract, getInitial } = this.props;
     return (
       <div>
-        <TxNewButton {...this.props} />
+        <TxNewButton {...this.props} onMined={getInitial} />
         <SelfCallingTxItem
           {...this.props}
+          onMined={getInitial}
           header="Create Owner"
           trigger={<Button basic content="Add Owner" icon="user" />}
           getMethodData={({ newOwner }) => contract.addOwner.getData(newOwner)}
@@ -30,6 +31,7 @@ export default class ActionsMenu extends Component {
         />
         <SelfCallingTxItem
           {...this.props}
+          onMined={getInitial}
           header="Update Minimum Quorum Requirement"
           trigger={<Button basic content="Update Quorum" icon="users" />}
           getMethodData={({ requirement }) => contract.changeRequirement.getData(requirement)}
@@ -50,4 +52,5 @@ export default class ActionsMenu extends Component {
 
 ActionsMenu.propTypes = {
   contract: PropTypes.object.isRequired,
+  getInitial: PropTypes.func.isRequired,
 };

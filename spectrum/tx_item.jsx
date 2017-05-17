@@ -11,7 +11,9 @@ export default class TransactionItem extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
   componentDidMount() {
-    this.getData();
+    if (!this.props.contract.transactions(this.props.index)) {
+      this.getData();
+    }
   }
   getData() {
     const { contract: { transactions, getConfirmations }, index } = this.props;

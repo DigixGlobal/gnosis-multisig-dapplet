@@ -10,7 +10,8 @@ export default class OwnersEdit extends Component {
     this.onMined = this.onMined.bind(this);
   }
   onMined() {
-    this.props.contract.getTransactionCount.call(true, true);
+    const { onMined, contract } = this.props;
+    return onMined ? onMined() : contract.getTransactionCount.call(true, true);
   }
   handleTransaction(formData) {
     const { contract, getMethodData } = this.props;
@@ -36,6 +37,7 @@ OwnersEdit.propTypes = {
   contract: PropTypes.object.isRequired,
   web3: PropTypes.object.isRequired,
   network: PropTypes.object.isRequired,
+  onMined: PropTypes.func,
   icon: PropTypes.object,
   trigger: PropTypes.func,
   getMethodData: PropTypes.func.isRequired,

@@ -84,7 +84,4 @@ TxDetailModal.propTypes = {
   web3: PropTypes.object.isRequired,
   network: PropTypes.object.isRequired,
   handleMined: PropTypes.func.isRequired,
-  handleConfirm: PropTypes.func.isRequired,
-  handleRevoke: PropTypes.func.isRequired,
-  handleExecute: PropTypes.func.isRequired,
 };

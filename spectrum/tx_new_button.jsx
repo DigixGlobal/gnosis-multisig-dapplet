@@ -12,7 +12,8 @@ export default class TxNewButton extends Component {
     this.onMined = this.onMined.bind(this);
   }
   onMined() {
-    return this.props.contract.getTransactionCount.call(true, true);
+    const { onMined, contract } = this.props;
+    return onMined ? onMined() : contract.getTransactionCount.call(true, true);
   }
   handleTransaction({ destination, from, ethValue, gas, gasPrice, ...rest }) {
     const { contract } = this.props;
@@ -43,6 +44,7 @@ export default class TxNewButton extends Component {
 
 TxNewButton.propTypes = {
   web3: PropTypes.object.isRequired,
+  onMined: PropTypes.func,
   network: PropTypes.object.isRequired,
   defaultAddress: PropTypes.object.isRequired,
   contract: PropTypes.object.isRequired,
