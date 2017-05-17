@@ -14,5 +14,5 @@ x Create Transaction `submitTransaction`
   ~ Re-Execute Transaction `executeTransaction`
 ~ Admin
   ~ Add User `replaceOwner`, `removeOwner`, `addOwner`
-  - Requirement `changeRequirement`
+  ~ Requirement `changeRequirement`
 ```

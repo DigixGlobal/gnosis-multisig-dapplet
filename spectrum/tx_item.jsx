@@ -33,7 +33,7 @@ export default class TransactionItem extends Component {
         <Table.Cell>{index}</Table.Cell>
         <Table.Cell>{destination}</Table.Cell>
         <Table.Cell>{value && value.toNumber()}</Table.Cell>
-        <Table.Cell>{data}</Table.Cell>
+        <Table.Cell>{(data || '').substring(0, 10)}...</Table.Cell>
         <Table.Cell>{`${(confirmations).length}`} / {`${contract.required()}`}</Table.Cell>
         <Table.Cell><Icon name={executed ? 'checkmark' : 'remove'} /></Table.Cell>
         {this.state.active &&

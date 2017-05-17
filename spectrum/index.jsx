@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import ContractInterface from './tx_list.jsx';
+import Multisig from './multisig.jsx';
 import { networks as contractNetworks, abi } from '../build/contracts/MultiSig.json';
 
 const Web3Connect = require('@digix/spectrum/src/helpers/web3/connect').default;
@@ -21,7 +21,7 @@ class MultiSig extends Component {
     const contract = web3.eth.contract(abi).at(contractAddress);
     if (!contract) { return loading; }
     const network = networks.find(n => n.id === 'eth-testrpc');
-    return <ContractInterface {...{ contract, web3, network, defaultAddress }} />;
+    return <Multisig {...{ contract, web3, network, defaultAddress }} />;
   }
 }
 

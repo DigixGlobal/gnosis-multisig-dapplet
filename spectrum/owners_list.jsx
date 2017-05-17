@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Form, Segment } from 'semantic-ui-react';
 
-import OwnersActionIcon from './owners_action_icon.jsx';
+import SelfCallingTxItem from './self_calling_tx_item.jsx';
 
 const DefaultAddressSelector = require('@digix/spectrum/src/components/common/default_address_selector').default;
 const AddressInput = require('@digix/spectrum/src/components/common/address_input').default;
@@ -14,7 +14,7 @@ export default class OwnersList extends Component {
         {owners.map(owner => (
           <Segment>
             <code>{owner}</code>{' '}{' '}{' '}
-            <OwnersActionIcon
+            <SelfCallingTxItem
               {...this.props}
               header={`Replace Owner: ${owner}`}
               icon={{ color: 'blue', name: 'edit' }}
@@ -29,7 +29,7 @@ export default class OwnersList extends Component {
                 </Form.Field>
               )}
             />
-            <OwnersActionIcon
+            <SelfCallingTxItem
               {...this.props}
               header={`Remove Owner: ${owner}`}
               icon={{ color: 'red', name: 'remove' }}
