@@ -9,11 +9,10 @@ x Create Transaction `submitTransaction`
 ~ Detail View
   ~ List Transaction Detail
   ~ List Confirmations `getConfirmations.call(transactionId)`
-  - Confirm Transaction `confirmTransaction`
-  - Revoke Confirmation `revokeConfirmation`
-  - Re-Execute Transaction `executeTransaction`
-- Admin
-  - Add User `replaceOwner`, `removeOwner`, `addOwner`
-  - Change Daily Limit `changeRequirement`
+  ~ Confirm Transaction `confirmTransaction`
+  ~ Revoke Confirmation `revokeConfirmation`
+  ~ Re-Execute Transaction `executeTransaction`
+~ Admin
+  ~ Add User `replaceOwner`, `removeOwner`, `addOwner`
   - Requirement `changeRequirement`
 ```

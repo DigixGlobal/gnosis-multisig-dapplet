@@ -3,6 +3,7 @@ import { Table } from 'semantic-ui-react';
 
 import TransactionItem from './tx_item.jsx';
 import TxNewButton from './tx_new_button.jsx';
+import OwnersList from './owners_list.jsx';
 
 export default class MultisigTxList extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ export default class MultisigTxList extends Component {
     return (
       <div>
         <TxNewButton {...this.props} />
+        <OwnersList {...this.props} />
         <pre>
           <code>
             {`

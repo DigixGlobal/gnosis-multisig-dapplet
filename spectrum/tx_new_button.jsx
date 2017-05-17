@@ -9,7 +9,10 @@ export default class TxNewButton extends Component {
   constructor(props) {
     super(props);
     this.handleTransaction = this.handleTransaction.bind(this);
-    this.handleMined = this.handleMined.bind(this);
+    this.onMined = this.onMined.bind(this);
+  }
+  onMined() {
+    return this.props.contract.getTransactionCount.call(true, true);
   }
   handleTransaction({ destination, from, ethValue, gas, gasPrice, ...rest }) {
     const { contract } = this.props;
@@ -17,15 +20,12 @@ export default class TxNewButton extends Component {
     const value = ethValue * 1e18;
     return contract.submitTransaction.sendTransaction(destination, value, data, { from, gas, gasPrice });
   }
-  handleMined() {
-    return this.props.contract.getTransactionCount.call(true, true);
-  }
   render() {
     const { web3, network, defaultAddress } = this.props;
-    const { handleMined, handleTransaction } = this;
+    const { onMined, handleTransaction } = this;
     return (
       <TransactionModal
-        {...{ web3, network, handleTransaction, onMined: handleMined }}
+        {...{ web3, network, handleTransaction, onMined }}
         header="New Transaction"
         data={{ from: defaultAddress && defaultAddress.address, gas: 200000 }}
         renderForm={props => <TxNewForm {...this.props} {...props} />}
