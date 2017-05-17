@@ -14,7 +14,7 @@ export default class TxDetailModal extends Component {
     const { handleMined, web3, network } = this.props;
     return (
       <TransactionModal
-        data={{ gas: 100000 }}
+        data={{ gas: 300000 }}
         {...{ web3, network, trigger: show ? trigger : null, header, handleTransaction, onMined: handleMined }}
       />
     );

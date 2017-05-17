@@ -1,9 +1,13 @@
 import React, { PropTypes, Component } from 'react';
-import { Table } from 'semantic-ui-react';
+import { Button, Form, Table } from 'semantic-ui-react';
 
 import TransactionItem from './tx_item.jsx';
 import TxNewButton from './tx_new_button.jsx';
 import OwnersList from './owners_list.jsx';
+import OwnersActionIcon from './owners_action_icon.jsx';
+
+const DefaultAddressSelector = require('@digix/spectrum/src/components/common/default_address_selector').default;
+const AddressInput = require('@digix/spectrum/src/components/common/address_input').default;
 
 export default class MultisigTxList extends Component {
   componentDidMount() {
@@ -18,6 +22,21 @@ export default class MultisigTxList extends Component {
     return (
       <div>
         <TxNewButton {...this.props} />
+        <OwnersActionIcon
+          {...this.props}
+          header="Create Owner"
+          trigger={<Button basic content="Add Owner" icon="user" />}
+          getMethodData={({ newOwner }) => this.props.contract.addOwner.getData(newOwner)}
+          renderForm={({ formChange, formData }) => (
+            <Form.Field>
+              <Form.Field>
+                <label>From</label>
+                <DefaultAddressSelector />
+              </Form.Field>
+              <AddressInput placeholder="e.g. `0x123...456`" label="New Owner Address" name="newOwner" {...{ formChange, formData }} />
+            </Form.Field>
+          )}
+        />
         <OwnersList {...this.props} />
         <pre>
           <code>
