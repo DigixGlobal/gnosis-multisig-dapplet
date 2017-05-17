@@ -1,0 +1,18 @@
+{
+  "extends": "airbnb",
+  "env" : {
+    "mocha": true
+  },
+  "globals" : {
+    "assert": true,
+    "artifacts": true,
+    "contract": true
+  },
+  "rules" : {
+    "prefer-arrow-callback": [0],
+    "func-names": [0],
+    "max-len": [0],
+    "react/forbid-prop-types": [0],
+    "import/extensions": [0]
+  }
+}
