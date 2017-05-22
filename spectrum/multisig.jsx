@@ -1,7 +1,9 @@
 import React, { PropTypes, Component } from 'react';
+import { Divider, Grid, Header } from 'semantic-ui-react';
 
 import OwnersList from './owners_list.jsx';
 import TxList from './tx_list.jsx';
+import ContractInfo from './contract_info.jsx';
 
 export default class Multisig extends Component {
   componentDidMount() {
@@ -12,11 +14,20 @@ export default class Multisig extends Component {
   }
   render() {
     return (
-      <div>
-        <p>TODO: Stats ( required, total counts )</p>
-        <OwnersList {...this.props} />
-        <TxList {...this.props} />
-      </div>
+      <Grid>
+        <Grid.Column stackable computer={8} tablet={16}>
+          <Header content="MultiSig Wallet" subheader="Transactions require approvals from multiple different accounts" />
+          <ContractInfo {...this.props} />
+        </Grid.Column>
+        <Grid.Column computer={8} tablet={16}>
+          <Header content="Owners" subheader="Users in control of Wallet" />
+          <OwnersList {...this.props} />
+        </Grid.Column>
+        <Grid.Column width={16}>
+          <Header content="Transactions" subheader="Actions executed by Multisig owners" />
+          <TxList {...this.props} />
+        </Grid.Column>
+      </Grid>
     );
   }
 }

@@ -6,6 +6,7 @@ import SelfCallingTxItem from './self_calling_tx_item.jsx';
 
 const DefaultAddressSelector = require('@digix/spectrum/src/components/common/default_address_selector').default;
 const FormField = require('@digix/spectrum/src/components/common/form_field').default;
+const AddressInput = require('@digix/spectrum/src/components/common/address_input').default;
 
 export default class ActionsMenu extends Component {
   render() {
@@ -25,7 +26,13 @@ export default class ActionsMenu extends Component {
                 <label>From</label>
                 <DefaultAddressSelector />
               </Form.Field>
-              <FormField placeholder="e.g. `0x123...456`" label="New Owner Address" name="newOwner" {...{ formChange, formData }} />
+              <AddressInput
+                showQrScanner
+                placeholder="e.g. `0x123...456`"
+                label="New Owner Address"
+                name="newOwner"
+                {...{ formChange, formData }}
+              />
             </Form.Field>
           )}
         />

@@ -31,13 +31,20 @@ export default class TransactionItem extends Component {
     const confirmations = contract.getConfirmations(index) || [];
     const { destination, value, data, executed } = contract.transactions(index) || {};
     return (
-      <Table.Row style={{ cursor: 'pointer' }} onClick={() => this.setState({ active: true })}>
+      <Table.Row
+        positive={executed}
+        negative={!executed}
+        style={{ cursor: 'pointer' }}
+        onClick={() => this.setState({ active: true })}
+      >
+        <Table.Cell>
+          <Icon name={executed ? 'checkmark' : 'remove'} />{' '}
+          {`${(confirmations).length}`} / {`${contract.required()}`}
+        </Table.Cell>
         <Table.Cell>{index}</Table.Cell>
-        <Table.Cell>{destination}</Table.Cell>
-        <Table.Cell>{value && value.toNumber()}</Table.Cell>
-        <Table.Cell>{(data || '').substring(0, 10)}...</Table.Cell>
-        <Table.Cell>{`${(confirmations).length}`} / {`${contract.required()}`}</Table.Cell>
-        <Table.Cell><Icon name={executed ? 'checkmark' : 'remove'} /></Table.Cell>
+        <Table.Cell>{value && value.toNumber() / 1e18}</Table.Cell>
+        <Table.Cell>{(destination || '').substring(0, 10)}...</Table.Cell>
+        <Table.Cell>{(data || '').substring(0, 8)}...</Table.Cell>
         {this.state.active &&
           <TxDetailModal
             {...this.props}

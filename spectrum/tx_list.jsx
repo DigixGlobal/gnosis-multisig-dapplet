@@ -19,9 +19,9 @@ export default class MultisigTxList extends Component {
   }
   componentDidMount() {
     const { contract } = this.props;
-    contract.getTransactionCount.call(true, true);
-    contract.getTransactionCount.call(true, false);
-    contract.getTransactionCount.call(true, false);
+    contract.getTransactionCount.call(tabs[0].mode[0], tabs[0].mode[1]);
+    contract.getTransactionCount.call(tabs[1].mode[0], tabs[1].mode[1]);
+    contract.getTransactionCount.call(tabs[2].mode[0], tabs[2].mode[1]);
     contract.getOwners.call();
     contract.required.call();
   }
@@ -62,12 +62,11 @@ export default class MultisigTxList extends Component {
           <Table selectable attached="bottom">
             <Table.Header>
               <Table.Row>
+                <Table.HeaderCell>👍</Table.HeaderCell>
                 <Table.HeaderCell>ID</Table.HeaderCell>
+                <Table.HeaderCell>Value</Table.HeaderCell>
                 <Table.HeaderCell>Destination</Table.HeaderCell>
-                <Table.HeaderCell>Value (wei)</Table.HeaderCell>
                 <Table.HeaderCell>Data</Table.HeaderCell>
-                <Table.HeaderCell>Confirmations</Table.HeaderCell>
-                <Table.HeaderCell>Executed</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
