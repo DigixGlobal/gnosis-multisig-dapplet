@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Icon, Table, List, Button, Form } from 'semantic-ui-react';
 import EZModal from 'sui-react-ezmodal';
 
 const DefaultAddressSelector = require('@digix/spectrum/src/components/common/default_address_selector').default;
@@ -51,7 +51,9 @@ export default class TxDetailModal extends Component {
   render() {
     const { contract, index } = this.props;
     const confirmations = contract.getConfirmations(index) || [];
-    const transaction = contract.transactions(index) || {};
+    const required = contract.required() || 0;
+    const { destination, value, data, executed } = contract.transactions(index) || {};
+
     return (
       <EZModal
         initiallyOpen
@@ -65,8 +67,35 @@ export default class TxDetailModal extends Component {
               <label>Select Account</label>
               <DefaultAddressSelector />
             </Form.Field>
-            <pre>{JSON.stringify(transaction, null, 2)}</pre>
-            <pre>{JSON.stringify({ confirmations }, null, 2)}</pre>
+            <Table definition>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>Destination</Table.Cell>
+                  <Table.Cell>{`${destination}`}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Value</Table.Cell>
+                  <Table.Cell>{`${value}`}</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Data</Table.Cell>
+                  <Table.Cell style={{ wordBreak: 'break-all' }}>
+                    {`${data}`}
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Executed</Table.Cell>
+                  <Table.Cell><Icon name={executed ? 'checkmark' : 'remove'} color={executed ? 'green' : 'red'} /></Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>Confirmations</Table.Cell>
+                  <Table.Cell>
+                    <List num>{confirmations.map(c => <List.Item key={c} content={c} icon="key" />)}</List>
+                    {/* {required} */}
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
           </Form>
         )}
         onMined={this.handleMined}
