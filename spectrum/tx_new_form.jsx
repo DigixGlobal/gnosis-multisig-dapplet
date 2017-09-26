@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
 const DefaultAddressSelector = require('@digix/spectrum/src/components/common/default_address_selector').default;

@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Divider, Grid, Header } from 'semantic-ui-react';
 
 import OwnersList from './owners_list.jsx';
@@ -15,7 +16,7 @@ export default class Multisig extends Component {
   render() {
     return (
       <Grid>
-        <Grid.Column stackable computer={8} tablet={16}>
+        <Grid.Column computer={8} tablet={16}>
           <Header content="MultiSig Wallet" subheader="Transactions require approvals from multiple different accounts" />
           <ContractInfo {...this.props} />
         </Grid.Column>

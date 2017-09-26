@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Icon } from 'semantic-ui-react';
 
 const TransactionModal = require('@digix/spectrum/src/components/transactions/transaction_modal').default;
@@ -39,7 +40,7 @@ OwnersEdit.propTypes = {
   network: PropTypes.object.isRequired,
   onMined: PropTypes.func,
   icon: PropTypes.object,
-  trigger: PropTypes.func,
+  trigger: PropTypes.object.isRequired,
   getMethodData: PropTypes.func.isRequired,
   renderForm: PropTypes.func.isRequired,
   header: PropTypes.string.isRequired,

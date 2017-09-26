@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Segment } from 'semantic-ui-react';
 
 import SelfCallingTxItem from './self_calling_tx_item.jsx';

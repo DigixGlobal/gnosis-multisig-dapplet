@@ -1,4 +1,5 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table, Icon } from 'semantic-ui-react';
 
 import TxDetailModal from './tx_detail_modal.jsx';
