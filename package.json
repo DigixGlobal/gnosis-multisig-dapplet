@@ -1,6 +1,6 @@
 {
   "name": "@digix/truffle-gnosis-multisig",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Gnosis Multisig deployed via Truffle",
   "author": "DigixGlobal",
   "homepage": "https://github.com/DigixGlobal/truffle-gnosis-multisig",
@@ -12,12 +12,14 @@
   "scripts": {},
   "dependencies": {
     "awaiting": "^2.2.0",
+    "sui-react-ezmodal": "^0.1.6"
+  },
+  "peerDependenceis": {
     "prop-types": "^15.6.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^5.0.4",
-    "semantic-ui-react": "^0.68.2",
-    "sui-react-ezmodal": "^0.1.6"
+    "semantic-ui-react": "^0.68.2"
   },
   "devDependencies": {
     "@digix/truffle-lightwallet-provider": "0.0.12",
